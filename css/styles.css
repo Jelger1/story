@@ -201,7 +201,15 @@ body {
     transition: all 0.3s ease;
 }
 
-.group:hover .nav-icon {
+.nav-icon-small {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.group:hover .nav-icon,
+.group:hover .nav-icon-small {
     filter: brightness(0) saturate(100%) invert(36%) sepia(93%) saturate(1352%) hue-rotate(131deg) brightness(97%) contrast(101%);
 }
 
@@ -209,6 +217,11 @@ body {
     .nav-icon {
         width: 80px;
         height: 80px;
+    }
+    
+    .nav-icon-small {
+        width: 60px;
+        height: 60px;
     }
 }
 

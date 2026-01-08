@@ -1,0 +1,323 @@
+/* ===========================================
+   HEERLEN: DE STORY VAN HET ZWARTE GOUD
+   Main Stylesheet
+   =========================================== */
+
+/* --- CSS Variables --- */
+:root {
+    --geel: #ffeb00;
+    --zwart: #000000;
+    --grijs: #111111;
+}
+
+/* --- Custom Fonts --- */
+@font-face {
+    font-family: 'Girdo Black';
+    src: url('../assets/Girdo Black.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* --- Typography --- */
+/* Girdo Black */
+h1, h2, h3, .girdo-font {
+    font-family: 'Girdo Black', 'Anton', sans-serif;
+    text-transform: uppercase;
+    line-height: 0.85;
+    letter-spacing: -0.02em;
+}
+
+/* Circular Std Fallback */
+body, p, span, .circular-font {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
+
+/* --- Base Styles --- */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--zwart);
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* --- Intro Section Layout --- */
+.intro-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 3vh !important;
+    padding-bottom: 3vh !important;
+}
+
+.intro-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+}
+
+.intro-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-start;
+    background: var(--grijs);
+    padding: 1.5rem 2rem;
+    border-left: 6px solid var(--geel);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 95% 100%, 0 100%);
+}
+
+@media (min-width: 768px) {
+    .intro-bottom {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        padding: 2rem 2.5rem;
+    }
+}
+
+.intro-quote {
+    font-size: 1rem;
+    font-style: italic;
+    color: #ffffff;
+    max-width: 700px;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.intro-quote::before {
+    content: '"';
+    color: var(--geel);
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 0;
+    margin-right: 0.25rem;
+}
+
+@media (min-width: 768px) {
+    .intro-quote {
+        font-size: 1.15rem;
+    }
+}
+
+/* --- Video Container --- */
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    background: var(--grijs);
+    border-left: 10px solid var(--geel);
+    clip-path: polygon(0 0, 100% 0, 100% 88%, 90% 100%, 0 100%);
+    padding: 1rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+@media (min-width: 768px) {
+    .video-container {
+        padding: 1.25rem;
+    }
+}
+
+.video-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    background: var(--geel);
+    clip-path: polygon(100% 0, 0 0, 100% 100%);
+}
+
+@media (min-width: 768px) {
+    .video-container::before {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+.video-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50px;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--geel) 0%, transparent 100%);
+}
+
+.intro-video {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 55vh;
+    object-fit: cover;
+    clip-path: polygon(0 0, 100% 0, 100% 92%, 95% 100%, 0 100%);
+}
+
+/* --- Components --- */
+
+/* Steenkool hoekige vormen */
+.stone-card {
+    background: var(--grijs);
+    border-left: 10px solid var(--geel);
+    clip-path: polygon(0 0, 100% 0, 100% 88%, 90% 100%, 0 100%);
+    padding: 3rem;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-angular {
+    background: var(--geel);
+    color: var(--zwart);
+    clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+    padding: 1rem 2.5rem;
+    font-weight: 900;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-angular:hover {
+    background: #ffffff;
+    transform: scale(1.05);
+}
+
+/* --- Navigation Icons --- */
+.nav-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.group:hover .nav-icon {
+    filter: brightness(0) saturate(100%) invert(36%) sepia(93%) saturate(1352%) hue-rotate(131deg) brightness(97%) contrast(101%);
+}
+
+@media (min-width: 768px) {
+    .nav-icon {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+/* --- Timeline --- */
+.timeline-rail {
+    position: fixed;
+    left: 40px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 40;
+}
+
+.timeline-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--geel);
+    height: 0%;
+    transition: height 0.1s ease-out;
+}
+
+.marker {
+    position: absolute;
+    left: -9px;
+    width: 20px;
+    height: 20px;
+    background: var(--zwart);
+    border: 3px solid #333;
+    transform: rotate(45deg);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.marker.active {
+    background: var(--geel);
+    border-color: var(--geel);
+    box-shadow: 0 0 20px var(--geel);
+}
+
+.marker:hover {
+    transform: rotate(45deg) scale(1.2);
+}
+
+/* --- Charts --- */
+.chart-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    height: 300px;
+    margin: 2rem auto;
+}
+
+/* --- Sections --- */
+section {
+    min-height: 100vh;
+    padding: 10vh 10% 10vh 120px;
+    border-bottom: 1px solid #222;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* --- Image Placeholder --- */
+.image-box {
+    background: #0a0a0a;
+    border: 1px dashed #333;
+    width: 100%;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #444;
+    font-size: 0.8rem;
+    margin: 2rem 0;
+    border-radius: 4px;
+}
+
+/* --- Utility Classes --- */
+.hidden-section {
+    display: none;
+}
+
+/* --- Animations --- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .timeline-rail {
+        display: none;
+    }
+    
+    section {
+        padding: 8vh 5% !important;
+    }
+    
+    h2 {
+        font-size: 2.5rem !important;
+    }
+}

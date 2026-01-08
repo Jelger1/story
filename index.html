@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heerlen: De Story van het Zwarte Goud</title>
+    
+    <!-- External Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- VIDEO INTRODUCTIE -->
+    <section id="intro" class="!p-6 md:!p-10 intro-section">
+        <div class="max-w-6xl mx-auto">
+            <div class="intro-layout">
+                <div class="video-container">
+                    <video autoplay muted loop playsinline class="intro-video">
+                        <source src="assets/INTRO-VIDEO.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="intro-bottom">
+                    <p class="intro-quote">
+                        "Stel je een stil Limburgs dorp voor. Een plek van boeren, beken en Romeinse resten diep in de grond. Het jaar is 1890. Niets wijst erop dat dit dorp binnen dertig jaar het industriële hart van Nederland zal zijn..."
+                    </p>
+                    <button onclick="showNavigator()" class="btn-angular text-xl md:text-2xl">Start de Story</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- THEMA NAVIGATOR -->
+    <section id="navigator" class="hidden-section !px-10 text-center">
+        <h2 class="text-6xl mb-16">Kies een Verdieping</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <button onclick="startStory('welvaart')" class="stone-card hover:bg-white hover:text-black transition text-left group">
+                <img src="assets/Welvaart-Economie.svg" alt="Welvaart & Economie" class="nav-icon">
+                <h3 class="text-2xl font-bold uppercase">Welvaart & Economie</h3>
+                <p class="text-gray-400 group-hover:text-black text-sm mt-4">Van Concessie-oorlog tot de rijkste stad van Europa.</p>
+            </button>
+            <button onclick="startStory('migratie')" class="stone-card hover:bg-white hover:text-black transition text-left group">
+                <img src="assets/Groei-Migratie.svg" alt="Groei & Migratie" class="nav-icon">
+                <h3 class="text-2xl font-bold uppercase">Groei & Migratie</h3>
+                <p class="text-gray-400 group-hover:text-black text-sm mt-4">De herkomst-mix: Polen, Italianen en de wijken van toen.</p>
+            </button>
+            <button onclick="startStory('cultuur')" class="stone-card hover:bg-white hover:text-black transition text-left group">
+                <img src="assets/Arbeidscultuur.svg" alt="Arbeidscultuur" class="nav-icon">
+                <h3 class="text-2xl font-bold uppercase">Arbeidscultuur</h3>
+                <p class="text-gray-400 group-hover:text-black text-sm mt-4">Het leven ondergronds, Sint Barbara en de Koempel-eer.</p>
+            </button>
+        </div>
+    </section>
+
+    <!-- TIMELINE SIDEBAR -->
+    <div id="timeline-ui" class="timeline-rail hidden">
+        <div id="fill" class="timeline-fill"></div>
+        <div class="marker active" style="top: 10%"></div>
+        <div class="marker" style="top: 30%"></div>
+        <div class="marker" style="top: 50%"></div>
+        <div class="marker" style="top: 70%"></div>
+        <div class="marker" style="top: 90%"></div>
+    </div>
+
+    <!-- STORY CONTENT: WELVAART -->
+    <div id="story-welvaart" class="hidden-section">
+        <div class="fixed top-6 right-6 z-50">
+            <button onclick="backToNavigator()" class="bg-[#111] border border-[#ffeb00] text-[#ffeb00] px-4 py-2 hover:bg-[#ffeb00] hover:text-black transition uppercase font-bold text-sm">← Terug naar keuze</button>
+        </div>
+        <section>
+            <span class="text-[#ffeb00] text-4xl girdo-font">1894</span>
+            <h2 class="text-7xl mb-6">De Vonk: Henri Sarolea</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <p class="text-xl text-gray-300">Sarolea ziet wat anderen niet zien. Hij brengt de spoorweg naar Heerlen. Zonder trein geen kolenvervoer. Dit is het moment dat het agrarische hart voor het eerst een industrieel ritme krijgt.</p>
+                <div class="image-box"></div>
+            </div>
+        </section>
+        <section>
+            <span class="text-[#ffeb00] text-4xl girdo-font">1917</span>
+            <h2 class="text-7xl mb-6">De Oorlogsboom</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <p class="text-xl text-gray-300">Terwijl de wereld brandt in WO1, is Nederland neutraal maar heeft het brandstof nodig. De kolenprijs gaat 400% omhoog. Het geld stroomt met miljoenen tegelijk de stad binnen.</p>
+                <div class="chart-container"><canvas id="chartWealth1"></canvas></div>
+            </div>
+        </section>
+        <section>
+            <span class="text-[#ffeb00] text-4xl girdo-font">1935</span>
+            <h2 class="text-7xl mb-6">Het Glaspaleis</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <p class="text-xl text-gray-300">Modehuis Schunck bouwt een glazen monument. Het laat zien: wij zijn modern, wij zijn rijk. In een tijd van crisis is Heerlen een baken van welvaart voor heel Nederland.</p>
+                <div class="image-box"></div>
+            </div>
+        </section>
+        <section>
+            <span class="text-[#ffeb00] text-4xl girdo-font">1954</span>
+            <h2 class="text-7xl mb-6">Het Rijkste Dorp</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <p class="text-xl text-gray-300">Op papier is Heerlen de rijkste gemeente per inwoner. De kooplust is ongekend. De winkels in de binnenstad hebben de allernieuwste producten uit Amerika en Parijs.</p>
+                <div class="image-box"></div>
+            </div>
+        </section>
+        <section class="text-center">
+            <h2 class="text-5xl mb-8">Verken Andere Verhalen</h2>
+            <p class="text-xl text-gray-400 mb-12">Wil je meer ontdekken over Heerlen's mijngeschiedenis?</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto mb-12">
+                <button onclick="startStory('migratie')" class="stone-card hover:bg-white hover:text-black transition text-left group">
+                    <span class="text-[#ffeb00] group-hover:text-black text-3xl block mb-2">02</span>
+                    <h3 class="text-xl font-bold uppercase">Groei & Migratie</h3>
+                </button>
+                <button onclick="startStory('cultuur')" class="stone-card hover:bg-white hover:text-black transition text-left group">
+                    <span class="text-[#ffeb00] group-hover:text-black text-3xl block mb-2">03</span>
+                    <h3 class="text-xl font-bold uppercase">Arbeidscultuur</h3>
+                </button>
+            </div>
+            <button onclick="finishStory()" class="btn-angular">Naar de Val & Toekomst</button>
+        </section>
+    </div>
+
+    <!-- STORY CONTENT: MIGRATIE (Volgens jouw punten) -->
+    <div id="story-migratie" class="hidden-section">
+        <div class="fixed top-6 right-6 z-50">
+            <button onclick="backToNavigator()" class="bg-[#111] border border-[#ffeb00] text-[#ffeb00] px-4 py-2 hover:bg-[#ffeb00] hover:text-black transition uppercase font-bold text-sm">← Terug naar keuze</button>
+        </div>
+        <section>
+            <span class="text-[#ffeb00] text-4xl girdo-font">1900</span>
+            <h2 class="text-7xl mb-6">De Geboorte</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="stone-card">
+                    <p class="text-6xl font-black text-white">6.000</p>
+                    <p class="uppercase text-[#ffeb00]">Inwoners in 1899</p>
+                </div>
+                <p class="text-xl">Heerlen was een agrarisch dorp waar iedereen elkaar kende. Binnen 10 jaar zou de wereld hier neerstrijken.</p>
+            </div>
+        </section>
+        <section>
+            <span class="text-[#ffeb00] text-4xl girdo-font">1922</span>
+            <h2 class="text-7xl mb-6">De Koloniën</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <p class="text-xl">De mijnen worden huisbaas. De Molenberg wordt gebouwd. Een stad in een stad, speciaal voor de duizenden migranten uit Polen en Duitsland.</p>
+                <div class="chart-container"><canvas id="chartMigrantMix"></canvas></div>
+            </div>
+        </section>
+        <section>
+            <span class="text-[#ffeb00] text-4xl girdo-font">1955</span>
+            <h2 class="text-7xl mb-6">De Wederopbouw</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <p class="text-xl">Nieuwe geuren en muziek. Gastarbeiders uit Italië en Marokko trekken in de 'Gezellenhuizen'. Heerlen wordt voor het eerst echt multicultureel.</p>
+                <div class="image-box"></div>
+            </div>
+        </section>
+        <section class="text-center">
+            <h2 class="text-5xl mb-8">Verken Andere Verhalen</h2>
+            <p class="text-xl text-gray-400 mb-12">Wil je meer ontdekken over Heerlen's mijngeschiedenis?</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto mb-12">
+                <button onclick="startStory('welvaart')" class="stone-card hover:bg-white hover:text-black transition text-left group">
+                    <span class="text-[#ffeb00] group-hover:text-black text-3xl block mb-2">01</span>
+                    <h3 class="text-xl font-bold uppercase">Welvaart & Economie</h3>
+                </button>
+                <button onclick="startStory('cultuur')" class="stone-card hover:bg-white hover:text-black transition text-left group">
+                    <span class="text-[#ffeb00] group-hover:text-black text-3xl block mb-2">03</span>
+                    <h3 class="text-xl font-bold uppercase">Arbeidscultuur</h3>
+                </button>
+            </div>
+            <button onclick="finishStory()" class="btn-angular">Naar de Val & Toekomst</button>
+        </section>
+    </div>
+
+    <!-- STORY CONTENT: CULTUUR -->
+    <div id="story-cultuur" class="hidden-section">
+        <div class="fixed top-6 right-6 z-50">
+            <button onclick="backToNavigator()" class="bg-[#111] border border-[#ffeb00] text-[#ffeb00] px-4 py-2 hover:bg-[#ffeb00] hover:text-black transition uppercase font-bold text-sm">← Terug naar keuze</button>
+        </div>
+        <section>
+            <span class="text-[#ffeb00] text-4xl girdo-font">1910</span>
+            <h2 class="text-7xl mb-6">De Kanarie</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <p class="text-xl">Gevaar is de dagelijkse realiteit. Het vogeltje in de kooi is je enige levenslijn tegen gas. Arbeidscultuur betekent hier: je leven toevertrouwen aan de man naast je.</p>
+                <div class="image-box"></div>
+            </div>
+        </section>
+        <section>
+            <span class="text-[#ffeb00] text-4xl girdo-font">1925</span>
+            <h2 class="text-7xl mb-6">De Vaderlijke Mijn</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <p class="text-xl">De mijn regelt alles: je sportclub, de kerk, de school. Er is een strikte hiërarchie. De Meester-houwer is koning, de 'Piemel' zwijgt en werkt.</p>
+                <div class="chart-container"><canvas id="chartHierarchy"></canvas></div>
+            </div>
+        </section>
+        <section>
+            <span class="text-[#ffeb00] text-4xl girdo-font">1948</span>
+            <h2 class="text-7xl mb-6">Barbara-feest</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <p class="text-xl">Sint Barbara is de beschermheilige. De 'Dienst van het Geluk' wordt opgericht. Hard werken wordt beloond met gemeenschapsgevoel en trots.</p>
+                <div class="image-box"></div>
+            </div>
+        </section>
+        <section class="text-center">
+            <h2 class="text-5xl mb-8">Verken Andere Verhalen</h2>
+            <p class="text-xl text-gray-400 mb-12">Wil je meer ontdekken over Heerlen's mijngeschiedenis?</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto mb-12">
+                <button onclick="startStory('welvaart')" class="stone-card hover:bg-white hover:text-black transition text-left group">
+                    <span class="text-[#ffeb00] group-hover:text-black text-3xl block mb-2">01</span>
+                    <h3 class="text-xl font-bold uppercase">Welvaart & Economie</h3>
+                </button>
+                <button onclick="startStory('migratie')" class="stone-card hover:bg-white hover:text-black transition text-left group">
+                    <span class="text-[#ffeb00] group-hover:text-black text-3xl block mb-2">02</span>
+                    <h3 class="text-xl font-bold uppercase">Groei & Migratie</h3>
+                </button>
+            </div>
+            <button onclick="finishStory()" class="btn-angular">Naar de Val & Toekomst</button>
+        </section>
+    </div>
+
+    <!-- DE VAL & DE TOEKOMST -->
+    <div id="story-val" class="hidden-section">
+        <div class="fixed top-6 right-6 z-50">
+            <button onclick="backToNavigator()" class="bg-[#111] border border-[#ffeb00] text-[#ffeb00] px-4 py-2 hover:bg-[#ffeb00] hover:text-black transition uppercase font-bold text-sm">← Terug naar keuze</button>
+        </div>
+        <section class="!bg-red-900/20">
+            <span class="text-white bg-red-600 px-4 py-1 girdo-font text-3xl">17 DEC 1965</span>
+            <h2 class="text-8xl mb-6">HET DOEK VALT</h2>
+            <div class="image-box h-80">[Video: Joop den Uyl in de Stadsschouwburg]</div>
+            <p class="text-2xl font-bold">"De tijd van de kolen is voorbij." Heerlen verliest in één klap zijn hart en zijn reden van bestaan.</p>
+        </section>
+        <section>
+            <span class="text-[#ffeb00] text-4xl girdo-font">1975 - NU</span>
+            <h2 class="text-7xl mb-6">Wedergeboorte</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="space-y-6">
+                    <p class="text-xl">Van zwart naar groen. De schachten zijn dicht, maar de energie is terug. Heerlen is nu de 'Mural Capital' en hergebruikt het mijnwater voor duurzame warmte.</p>
+                    <div class="stone-card border-l-white">
+                        <h4 class="font-bold text-[#ffeb00]">Mijnwater Energie</h4>
+                        <p class="text-sm">De oude gangen verwarmen nu de stad. De mijn geeft nog steeds.</p>
+                    </div>
+                </div>
+                <div class="image-box"></div>
+            </div>
+        </section>
+        <section class="text-center">
+            <h2 class="text-5xl mb-8">Verken Andere Verhalen</h2>
+            <p class="text-xl text-gray-400 mb-12">Wil je meer ontdekken over Heerlen's mijngeschiedenis?</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <button onclick="startStory('welvaart')" class="stone-card hover:bg-white hover:text-black transition text-left group">
+                    <span class="text-[#ffeb00] group-hover:text-black text-3xl block mb-2">01</span>
+                    <h3 class="text-xl font-bold uppercase">Welvaart & Economie</h3>
+                </button>
+                <button onclick="startStory('migratie')" class="stone-card hover:bg-white hover:text-black transition text-left group">
+                    <span class="text-[#ffeb00] group-hover:text-black text-3xl block mb-2">02</span>
+                    <h3 class="text-xl font-bold uppercase">Groei & Migratie</h3>
+                </button>
+                <button onclick="startStory('cultuur')" class="stone-card hover:bg-white hover:text-black transition text-left group">
+                    <span class="text-[#ffeb00] group-hover:text-black text-3xl block mb-2">03</span>
+                    <h3 class="text-xl font-bold uppercase">Arbeidscultuur</h3>
+                </button>
+            </div>
+            <button onclick="backToNavigator()" class="btn-angular mt-12">Terug naar Hoofdmenu</button>
+        </section>
+    </div>
+
+    <!-- Custom Scripts -->
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -21,16 +21,13 @@
     <section id="intro" class="!p-6 md:!p-10 intro-section">
         <div class="max-w-6xl mx-auto">
             <div class="intro-layout">
-                <div class="video-container">
-                    <video autoplay muted loop playsinline class="intro-video">
-                        <source src="assets/INTRO-VIDEO.mp4" type="video/mp4">
-                    </video>
+                <div class="video-svg-container">
+                    <img src="assets/INTRO-VIDEO.gif" alt="Intro" class="intro-video-masked">
                 </div>
                 <div class="intro-bottom">
-                    <p class="intro-quote">
-                        "Stel je een stil Limburgs dorp voor. Een plek van boeren, beken en Romeinse resten diep in de grond. Het jaar is 1890. Niets wijst erop dat dit dorp binnen dertig jaar het industriële hart van Nederland zal zijn..."
-                    </p>
-                    <button onclick="showNavigator()" class="btn-angular text-xl md:text-2xl">Start de Story</button>
+                    <button id="start-btn" onclick="showNavigator()" class="btn-svg-simple opacity-0 transition-opacity duration-1000">
+                        <img src="assets/Start-Knop.svg" alt="Start de Story">
+                    </button>
                 </div>
             </div>
         </div>
@@ -40,20 +37,14 @@
     <section id="navigator" class="hidden-section !px-10 text-center">
         <h2 class="text-6xl mb-16">Kies een Verdieping</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <button onclick="startStory('welvaart')" class="stone-card hover:bg-white hover:text-black transition text-left group">
-                <img src="assets/Welvaart-Economie.svg" alt="Welvaart & Economie" class="nav-icon">
-                <h3 class="text-2xl font-bold uppercase">Welvaart & Economie</h3>
-                <p class="text-gray-400 group-hover:text-black text-sm mt-4">Van Concessie-oorlog tot de rijkste stad van Europa.</p>
+            <button onclick="startStory('welvaart')" class="btn-svg-simple group">
+                <img src="assets/knop-Welvaart.svg" alt="Welvaart">
             </button>
-            <button onclick="startStory('migratie')" class="stone-card hover:bg-white hover:text-black transition text-left group">
-                <img src="assets/Groei-Migratie.svg" alt="Groei & Migratie" class="nav-icon">
-                <h3 class="text-2xl font-bold uppercase">Groei & Migratie</h3>
-                <p class="text-gray-400 group-hover:text-black text-sm mt-4">De herkomst-mix: Polen, Italianen en de wijken van toen.</p>
+            <button onclick="startStory('migratie')" class="btn-svg-simple group">
+                <img src="assets/knop-migratie.svg" alt="Migratie">
             </button>
-            <button onclick="startStory('cultuur')" class="stone-card hover:bg-white hover:text-black transition text-left group">
-                <img src="assets/Arbeidscultuur.svg" alt="Arbeidscultuur" class="nav-icon">
-                <h3 class="text-2xl font-bold uppercase">Arbeidscultuur</h3>
-                <p class="text-gray-400 group-hover:text-black text-sm mt-4">Het leven ondergronds, Sint Barbara en de Koempel-eer.</p>
+            <button onclick="startStory('cultuur')" class="btn-svg-simple group">
+                <img src="assets/knop-Cultuur.svg" alt="Cultuur">
             </button>
         </div>
     </section>
@@ -109,16 +100,16 @@
             <h2 class="text-5xl mb-8">Verken Andere Verhalen</h2>
             <p class="text-xl text-gray-400 mb-12">Wil je meer ontdekken over Heerlen's mijngeschiedenis?</p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto mb-12">
-                <button onclick="startStory('migratie')" class="stone-card hover:bg-white hover:text-black transition text-left group">
-                    <img src="assets/Groei-Migratie.svg" alt="Groei & Migratie" class="nav-icon-small">
-                    <h3 class="text-xl font-bold uppercase">Groei & Migratie</h3>
+                <button onclick="startStory('migratie')" class="btn-svg-simple group">
+                    <img src="assets/knop-migratie.svg" alt="Migratie">
                 </button>
-                <button onclick="startStory('cultuur')" class="stone-card hover:bg-white hover:text-black transition text-left group">
-                    <img src="assets/Arbeidscultuur.svg" alt="Arbeidscultuur" class="nav-icon-small">
-                    <h3 class="text-xl font-bold uppercase">Arbeidscultuur</h3>
+                <button onclick="startStory('cultuur')" class="btn-svg-simple group">
+                    <img src="assets/knop-Cultuur.svg" alt="Cultuur">
                 </button>
             </div>
-            <button onclick="finishStory()" class="btn-angular">Naar de Val & Toekomst</button>
+            <button onclick="finishStory()" class="btn-svg-simple">
+                <img src="assets/sluiting-van-de-mijnen.svg" alt="Sluiting van de Mijnen">
+            </button>
         </section>
     </div>
 
@@ -158,16 +149,16 @@
             <h2 class="text-5xl mb-8">Verken Andere Verhalen</h2>
             <p class="text-xl text-gray-400 mb-12">Wil je meer ontdekken over Heerlen's mijngeschiedenis?</p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto mb-12">
-                <button onclick="startStory('welvaart')" class="stone-card hover:bg-white hover:text-black transition text-left group">
-                    <img src="assets/Welvaart-Economie.svg" alt="Welvaart & Economie" class="nav-icon-small">
-                    <h3 class="text-xl font-bold uppercase">Welvaart & Economie</h3>
+                <button onclick="startStory('welvaart')" class="btn-svg-simple group">
+                    <img src="assets/knop-Welvaart.svg" alt="Welvaart">
                 </button>
-                <button onclick="startStory('cultuur')" class="stone-card hover:bg-white hover:text-black transition text-left group">
-                    <img src="assets/Arbeidscultuur.svg" alt="Arbeidscultuur" class="nav-icon-small">
-                    <h3 class="text-xl font-bold uppercase">Arbeidscultuur</h3>
+                <button onclick="startStory('cultuur')" class="btn-svg-simple group">
+                    <img src="assets/knop-Cultuur.svg" alt="Cultuur">
                 </button>
             </div>
-            <button onclick="finishStory()" class="btn-angular">Naar de Val & Toekomst</button>
+            <button onclick="finishStory()" class="btn-svg-simple">
+                <img src="assets/sluiting-van-de-mijnen.svg" alt="Sluiting van de Mijnen">
+            </button>
         </section>
     </div>
 
@@ -176,12 +167,13 @@
         <div class="fixed top-6 right-6 z-50">
             <button onclick="backToNavigator()" class="bg-[#111] border border-[#ffeb00] text-[#ffeb00] px-4 py-2 hover:bg-[#ffeb00] hover:text-black transition uppercase font-bold text-sm">← Terug naar keuze</button>
         </div>
-        <section>
+        <section id="kanarie-section">
+            <audio id="kanarie-audio" src="assets/Kanarie-Sound.mp3" loop preload="auto"></audio>
             <span class="text-[#ffeb00] text-4xl girdo-font">1910</span>
             <h2 class="text-7xl mb-6">De Kanarie</h2>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <p class="text-xl">Gevaar is de dagelijkse realiteit. Het vogeltje in de kooi is je enige levenslijn tegen gas. Arbeidscultuur betekent hier: je leven toevertrouwen aan de man naast je.</p>
-                <div class="image-box"></div>
+                <img src="assets/Kanari.svg" alt="De Kanarie in de mijn" class="w-full h-auto object-contain rounded">
             </div>
         </section>
         <section>
@@ -192,28 +184,29 @@
                 <div class="chart-container"><canvas id="chartHierarchy"></canvas></div>
             </div>
         </section>
-        <section>
+        <section id="barbara-section">
+            <audio id="barbara-audio" src="assets/crowd-sound.mp3" loop preload="auto"></audio>
             <span class="text-[#ffeb00] text-4xl girdo-font">1948</span>
             <h2 class="text-7xl mb-6">Barbara-feest</h2>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <p class="text-xl">Sint Barbara is de beschermheilige. De 'Dienst van het Geluk' wordt opgericht. Hard werken wordt beloond met gemeenschapsgevoel en trots.</p>
-                <div class="image-box"></div>
+                <img src="assets/barbara.svg" alt="Sint Barbara" class="w-auto h-64 md:h-80 object-contain mx-auto">
             </div>
         </section>
         <section class="text-center">
             <h2 class="text-5xl mb-8">Verken Andere Verhalen</h2>
             <p class="text-xl text-gray-400 mb-12">Wil je meer ontdekken over Heerlen's mijngeschiedenis?</p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto mb-12">
-                <button onclick="startStory('welvaart')" class="stone-card hover:bg-white hover:text-black transition text-left group">
-                    <img src="assets/Welvaart-Economie.svg" alt="Welvaart & Economie" class="nav-icon-small">
-                    <h3 class="text-xl font-bold uppercase">Welvaart & Economie</h3>
+                <button onclick="startStory('welvaart')" class="btn-svg-simple group">
+                    <img src="assets/knop-Welvaart.svg" alt="Welvaart">
                 </button>
-                <button onclick="startStory('migratie')" class="stone-card hover:bg-white hover:text-black transition text-left group">
-                    <img src="assets/Groei-Migratie.svg" alt="Groei & Migratie" class="nav-icon-small">
-                    <h3 class="text-xl font-bold uppercase">Groei & Migratie</h3>
+                <button onclick="startStory('migratie')" class="btn-svg-simple group">
+                    <img src="assets/knop-migratie.svg" alt="Migratie">
                 </button>
             </div>
-            <button onclick="finishStory()" class="btn-angular">Naar de Val & Toekomst</button>
+            <button onclick="finishStory()" class="btn-svg-simple">
+                <img src="assets/sluiting-van-de-mijnen.svg" alt="Sluiting van de Mijnen">
+            </button>
         </section>
     </div>
 
@@ -246,17 +239,14 @@
             <h2 class="text-5xl mb-8">Verken Andere Verhalen</h2>
             <p class="text-xl text-gray-400 mb-12">Wil je meer ontdekken over Heerlen's mijngeschiedenis?</p>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <button onclick="startStory('welvaart')" class="stone-card hover:bg-white hover:text-black transition text-left group">
-                    <img src="assets/Welvaart-Economie.svg" alt="Welvaart & Economie" class="nav-icon-small">
-                    <h3 class="text-xl font-bold uppercase">Welvaart & Economie</h3>
+                <button onclick="startStory('welvaart')" class="btn-svg-simple group">
+                    <img src="assets/knop-Welvaart.svg" alt="Welvaart">
                 </button>
-                <button onclick="startStory('migratie')" class="stone-card hover:bg-white hover:text-black transition text-left group">
-                    <img src="assets/Groei-Migratie.svg" alt="Groei & Migratie" class="nav-icon-small">
-                    <h3 class="text-xl font-bold uppercase">Groei & Migratie</h3>
+                <button onclick="startStory('migratie')" class="btn-svg-simple group">
+                    <img src="assets/knop-migratie.svg" alt="Migratie">
                 </button>
-                <button onclick="startStory('cultuur')" class="stone-card hover:bg-white hover:text-black transition text-left group">
-                    <img src="assets/Arbeidscultuur.svg" alt="Arbeidscultuur" class="nav-icon-small">
-                    <h3 class="text-xl font-bold uppercase">Arbeidscultuur</h3>
+                <button onclick="startStory('cultuur')" class="btn-svg-simple group">
+                    <img src="assets/knop-Cultuur.svg" alt="Cultuur">
                 </button>
             </div>
             <button onclick="backToNavigator()" class="btn-angular mt-12">Terug naar Hoofdmenu</button>

@@ -204,3 +204,53 @@ function initCharts() {
         });
     }
 }
+
+// ===========================================
+// SECTION AUDIO OBSERVERS
+// ===========================================
+
+function initSectionAudio() {
+    // Setup audio observers for sections with sound
+    const audioSections = [
+        { sectionId: 'kanarie-section', audioId: 'kanarie-audio' },
+        { sectionId: 'barbara-section', audioId: 'barbara-audio' }
+    ];
+    
+    audioSections.forEach(({ sectionId, audioId }) => {
+        const section = document.getElementById(sectionId);
+        const audio = document.getElementById(audioId);
+        
+        if (!section || !audio) return;
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Section is in view - play audio
+                    audio.play().catch(e => console.log('Audio play blocked:', e));
+                } else {
+                    // Section is out of view - pause and reset audio
+                    audio.pause();
+                    audio.currentTime = 0;
+                }
+            });
+        }, {
+            threshold: 0.3 // Trigger when 30% of the section is visible
+        });
+        
+        observer.observe(section);
+    });
+}
+
+// Initialize when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    initSectionAudio();
+    
+    // Show start button after 5 seconds
+    const startBtn = document.getElementById('start-btn');
+    if (startBtn) {
+        setTimeout(() => {
+            startBtn.classList.remove('opacity-0');
+            startBtn.classList.add('opacity-100');
+        }, 5000);
+    }
+});

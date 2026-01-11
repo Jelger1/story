@@ -16,6 +16,21 @@ function showNavigator() {
     window.scrollTo({ top: 0, behavior: 'instant' });
 }
 
+// Pre-History functies
+function showPreHistory() {
+    document.getElementById('navigator').classList.add('hidden-section');
+    document.getElementById('story-prehistory').classList.remove('hidden-section');
+    document.getElementById('timeline-ui').classList.remove('hidden');
+    window.scrollTo({ top: 0, behavior: 'instant' });
+}
+
+function closePreHistory() {
+    document.getElementById('story-prehistory').classList.add('hidden-section');
+    document.getElementById('timeline-ui').classList.add('hidden');
+    document.getElementById('navigator').classList.remove('hidden-section');
+    window.scrollTo({ top: 0, behavior: 'instant' });
+}
+
 function startStory(id) {
     // Verberg alle story secties eerst
     document.querySelectorAll('[id^="story-"]').forEach(el => el.classList.add('hidden-section'));
@@ -57,9 +72,9 @@ window.addEventListener('scroll', function() {
     let scrolled = height > 0 ? (winScroll / height) * 100 : 0;
     fill.style.height = scrolled + "%";
     
-    // Marker activation logic - aangepast op de juiste posities
+    // Marker activation logic - alleen voor timeline-ui markers
     const markerPositions = [10, 30, 50, 70, 90];
-    let markers = document.querySelectorAll('.marker');
+    let markers = document.querySelectorAll('#timeline-ui .marker');
     markers.forEach((m, idx) => {
         if (scrolled >= markerPositions[idx] - 5) {
             m.classList.add('active');

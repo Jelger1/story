@@ -33,8 +33,70 @@
         </div>
     </section>
 
+    <!-- PRE-MIJN: Heerlen vóór de mijnen -->
+    <div id="story-prehistory" class="hidden-section">
+        <div class="fixed top-6 right-6 z-50">
+            <button onclick="closePreHistory()" class="bg-[#111] border border-[#ffeb00] text-[#ffeb00] px-4 py-2 hover:bg-[#ffeb00] hover:text-black transition uppercase font-bold text-sm">↓ Terug naar keuze</button>
+        </div>
+        <section>
+            <span class="text-[#ffeb00] text-4xl girdo-font">VÓÓR 1894</span>
+            <h2 class="text-7xl mb-6">Heerlen: Het Stille Dorp</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="space-y-6">
+                    <p class="text-xl text-gray-300">Lang voordat de eerste schacht werd gegraven, was Heerlen een rustig agrarisch dorp in het glooiende Zuid-Limburgse landschap. Boerderijen, velden en de oude Romeinse wegen bepaalden het beeld.</p>
+                    <div class="stone-card">
+                        <p class="text-5xl font-black text-white">~4.000</p>
+                        <p class="uppercase text-[#ffeb00]">Inwoners rond 1890</p>
+                    </div>
+                </div>
+                <p class="text-xl text-gray-300">De Romeinen hadden hier ooit een badhuis gebouwd – Coriovallum. Maar daarna werd het stil. Eeuwenlang leefden de Heerlenaren van het land, ver van de industriële revolutie die elders woedde.</p>
+            </div>
+        </section>
+        <section>
+            <span class="text-[#ffeb00] text-4xl girdo-font">HET OUDE LAND</span>
+            <h2 class="text-6xl mb-6">Een Wereld van Boeren</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <p class="text-xl text-gray-300">De meeste families werkten op het land. Rogge, haver en aardappelen waren de basis. Het leven werd bepaald door de seizoenen, de kerk en de gemeenschap. Iedereen kende iedereen.</p>
+                <div class="space-y-4">
+                    <div class="stone-card border-l-white">
+                        <h4 class="font-bold text-[#ffeb00]">Het Dialect</h4>
+                        <p class="text-sm">Het Heerlens dialect was de taal van het dagelijks leven. Een taal die zou veranderen door de komst van arbeiders uit heel Europa.</p>
+                    </div>
+                    <div class="stone-card border-l-white">
+                        <h4 class="font-bold text-[#ffeb00]">De Kerk</h4>
+                        <p class="text-sm">De Sint-Pancratiuskerk was het hart van het dorp. Religie en tradities bepaalden het ritme van het leven.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <span class="text-[#ffeb00] text-4xl girdo-font">1873</span>
+            <h2 class="text-6xl mb-6">De Ontdekking</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <p class="text-xl text-gray-300">Bij proefboringen wordt steenkool gevonden in de Limburgse bodem. Het zwarte goud ligt diep onder de velden. Eerst gebeurt er weinig, maar de industriëlen hebben het gezien. De klok begint te tikken.</p>
+                <div class="stone-card">
+                    <p class="text-4xl font-black text-white">"Kolen!"</p>
+                    <p class="uppercase text-[#ffeb00]">Het woord dat alles zou veranderen</p>
+                </div>
+            </div>
+        </section>
+        <section class="text-center">
+            <h2 class="text-5xl mb-12">En Toen Kwam de Mijn...</h2>
+            <button onclick="closePreHistory()" class="btn-svg-simple mx-auto block">
+                <img src="assets/Start-Knop.svg" alt="Begin het verhaal">
+            </button>
+        </section>
+    </div>
+
     <!-- THEMA NAVIGATOR -->
-    <section id="navigator" class="hidden-section !px-10 text-center">
+    <section id="navigator" class="hidden-section !px-10 !pt-6 text-center">
+        <!-- Ga Terug in Tijd knop -->
+        <div class="mb-4">
+            <button onclick="showPreHistory()" class="btn-svg-simple group animate-float">
+                <img src="assets/GA-TERUG-IN-TIJD.svg" alt="Ga terug in tijd">
+            </button>
+        </div>
+        
         <h2 class="text-6xl mb-16">Kies een Verdieping</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <button onclick="startStory('welvaart')" class="btn-svg-simple group">

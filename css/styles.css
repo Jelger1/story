@@ -45,6 +45,24 @@ body {
     overflow-x: hidden;
 }
 
+/* Float Animation for button */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.animate-float {
+    animation: float 2s ease-in-out infinite;
+}
+
+.animate-float:hover {
+    animation-play-state: paused;
+}
+
 /* --- Intro Section Layout --- */
 .intro-section {
     height: 100vh;

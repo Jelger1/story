@@ -59,6 +59,16 @@ function backToNavigator() {
     window.scrollTo({ top: 0, behavior: 'instant' });
 }
 
+function backToIntro() {
+    // Destroy alle charts bij teruggaan naar intro
+    destroyCharts();
+    document.querySelectorAll('[id^="story-"]').forEach(el => el.classList.add('hidden-section'));
+    document.getElementById('timeline-ui').classList.add('hidden');
+    document.getElementById('navigator').classList.add('hidden-section');
+    document.getElementById('intro').classList.remove('hidden-section');
+    window.scrollTo({ top: 0, behavior: 'instant' });
+}
+
 // ===========================================
 // SCROLL PROGRESS
 // ===========================================

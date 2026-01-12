@@ -70,6 +70,40 @@ function backToIntro() {
 }
 
 // ===========================================
+// VIDEO POPUP
+// ===========================================
+
+function openVideoPopup() {
+    const popup = document.getElementById('video-popup');
+    const video = document.getElementById('molenberg-video');
+    popup.classList.remove('hidden');
+    popup.classList.add('flex');
+    if (video) {
+        video.currentTime = 0;
+        video.play();
+    }
+}
+
+function closeVideoPopup() {
+    const popup = document.getElementById('video-popup');
+    const video = document.getElementById('molenberg-video');
+    if (video) {
+        video.pause();
+        video.currentTime = 0;
+    }
+    popup.classList.add('hidden');
+    popup.classList.remove('flex');
+}
+
+// Sluit popup bij klikken buiten de video
+document.addEventListener('click', function(e) {
+    const popup = document.getElementById('video-popup');
+    if (e.target === popup) {
+        closeVideoPopup();
+    }
+});
+
+// ===========================================
 // SCROLL PROGRESS
 // ===========================================
 

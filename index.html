@@ -198,9 +198,9 @@
         </section>
         <section>
             <span class="text-[#ffeb00] text-4xl girdo-font">1922</span>
-            <h2 class="text-7xl mb-6">De Koloniën</h2>
+            <h2 class="text-7xl mb-6">Molenberg</h2>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <p class="text-xl">De mijnen worden huisbaas. De Molenberg wordt gebouwd. Een stad in een stad, speciaal voor de duizenden migranten uit Polen en Duitsland.</p>
+                <p class="text-xl">Drieëntwintig jaar later is de stilte van de weiden definitief verdreven door het stampen van de machines. De mijnen zijn nu de almachtige huisbazen die de '<span onclick="openVideoPopup()" class="text-[#ffeb00] underline cursor-pointer hover:text-white transition">Molenberg</span>' uit de grond stampen: een stad in een stad, gebouwd voor een nieuwe, industriële wereld. In de straten van deze kolonie mengt de geur van steenkool zich met een symfonie van vreemde talen. De Limburgse identiteit vloeit hier samen met die van duizenden migranten, zoals de cijfers hiernaast laten zien.</p>
                 <div class="chart-container"><canvas id="chartMigrantMix"></canvas></div>
             </div>
         </section>
@@ -319,6 +319,20 @@
             </div>
             <button onclick="backToIntro()" class="btn-angular mt-12">Terug naar Hoofdmenu</button>
         </section>
+    </div>
+
+    <!-- VIDEO POPUP MODAL -->
+    <div id="video-popup" class="fixed inset-0 bg-black/90 z-[100] hidden items-center justify-center">
+        <div class="relative max-w-4xl w-full mx-4">
+            <button onclick="closeVideoPopup()" class="absolute -top-12 right-0 hover:opacity-80 transition">
+                <img src="assets/kruis.svg" alt="Sluiten" style="width: 32px; height: 32px;">
+            </button>
+            <div class="video-2-container">
+                <video id="molenberg-video" class="video-2-masked" loop muted autoplay playsinline>
+                    <source src="assets/Molenberg.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
     </div>
 
     <!-- Custom Scripts -->

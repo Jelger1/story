@@ -8,6 +8,7 @@
     <!-- External Libraries -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
     
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
@@ -160,7 +161,51 @@
             <h2 class="text-7xl mb-6">De Koninklijke Meesterzet</h2>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <p class="text-xl">Een aantal jaar na de opening van de eerste mijn, begon de regering zich een beetje zorgen te maken. Zij wilde namelijk niet dat buitenlanders de baas werden over onze energie en besloot daarom zelf de 'Staatsmijnen' op te richten. Ze gaven de mijnen namen zoals Wilhelmina en Emma, een geniale truc waardoor de mijnprojecten direct "heilig" werden. Niemand durfde namelijk te klagen over stank of lawaai als dat betekende dat je eigenlijk klaagde over de Koningin zelf.</p>
-                <img src="assets/foto-placeholder.svg" alt="Placeholder" class="w-full h-auto">
+                <!-- Overzicht Mijnen in Heerlen Tabel -->
+                <div class="mine-table-container">
+                    <h3 class="text-xl text-[#ffeb00] mb-3 girdo-font">Overzicht Mijnen in Heerlen</h3>
+                    <table class="mine-table">
+                        <thead>
+                            <tr>
+                                <th>Naam</th>
+                                <th>Plaats</th>
+                                <th>Open</th>
+                                <th>Sluit</th>
+                                <th>Type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Oranje Nassau I</td>
+                                <td>Heerlen</td>
+                                <td>1899</td>
+                                <td>1974</td>
+                                <td><span class="badge-privaat">Privaat</span></td>
+                            </tr>
+                            <tr class="row-staats">
+                                <td>Emma</td>
+                                <td>Hoensbroek</td>
+                                <td>1911</td>
+                                <td>1973</td>
+                                <td><span class="badge-staats">Staats</span></td>
+                            </tr>
+                            <tr>
+                                <td>Oranje Nassau III</td>
+                                <td>Heerlenheide</td>
+                                <td>1917</td>
+                                <td>1973</td>
+                                <td><span class="badge-privaat">Privaat</span></td>
+                            </tr>
+                            <tr>
+                                <td>Oranje Nassau IV</td>
+                                <td>Heksenberg</td>
+                                <td>1925</td>
+                                <td>1966</td>
+                                <td><span class="badge-privaat">Privaat</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </section>
         <section>
@@ -362,11 +407,13 @@
                 <img src="assets/Home-knop.svg" alt="Terug naar keuze" style="width: 32px; height: 32px;">
             </button>
         </div>
-        <section class="!bg-red-900/20">
-            <span class="text-white bg-red-600 px-4 py-1 girdo-font text-3xl">17 DEC 1965</span>
-            <h2 class="text-8xl mb-6">HET DOEK VALT</h2>
-            <div class="image-box h-80">[Video: Joop den Uyl in de Stadsschouwburg]</div>
-            <p class="text-2xl font-bold">"De tijd van de kolen is voorbij." Heerlen verliest in één klap zijn hart en zijn reden van bestaan.</p>
+        <section>
+            <span class="text-[#ffeb00] text-4xl girdo-font">1965</span>
+            <h2 class="text-7xl mb-6">Afscheid van de Ondergrond</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <p class="text-xl">Op 17 december 1965 valt het onverbiddelijke vonnis: de mijnen gaan dicht. Met de legendarische woorden 'De tijd van de kolen is voorbij' verbreekt Joop den Uyl de belofte van eeuwige welvaart. Voor Heerlen betekent dit het einde van een identiteit die decennialang in de diepte werd gesmeed. De stad van de duizend lichten moet plotseling leren leven in de schaduw van een onbekende toekomst.</p>
+                <img src="assets/foto-placeholder.svg" alt="Placeholder" class="w-full h-auto">
+            </div>
         </section>
         <section>
             <span class="text-[#ffeb00] text-4xl girdo-font">1958</span>

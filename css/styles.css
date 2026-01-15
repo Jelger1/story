@@ -5,8 +5,8 @@
 
 /* --- CSS Variables --- */
 :root {
-    --geel: #ffeb00;
-    --zwart: #000000;
+    --geel: #f5e53b;
+    --zwart: #101010;
     --grijs: #111111;
 }
 
@@ -484,4 +484,109 @@ section {
         86.31% 95.12%,
         77.14% 81.76%
     );
+}
+
+/* --- Mine Table Styling (Hoekig/Steen-achtig) --- */
+.mine-table-container {
+    background: var(--grijs);
+    padding: 1rem;
+    position: relative;
+}
+
+.mine-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.mine-table thead {
+    background: linear-gradient(90deg, var(--geel), #d4c62f);
+}
+
+.mine-table th {
+    color: var(--zwart);
+    font-weight: 900;
+    text-transform: uppercase;
+    padding: 0.4rem 0.4rem;
+    text-align: left;
+    font-size: 0.6rem;
+    letter-spacing: 0.01em;
+    border-bottom: 2px solid var(--zwart);
+}
+
+.mine-table td {
+    padding: 0.4rem 0.4rem;
+    border-bottom: 1px solid #333;
+    color: #e0e0e0;
+    vertical-align: middle;
+    font-size: 0.7rem;
+}
+
+.mine-table tbody tr {
+    transition: all 0.2s ease;
+}
+
+.mine-table tbody tr:hover {
+    background: rgba(245, 229, 59, 0.1);
+}
+
+.mine-table tbody tr.row-staats {
+    background: rgba(245, 229, 59, 0.05);
+}
+
+.mine-table tbody tr.row-staats:hover {
+    background: rgba(245, 229, 59, 0.15);
+}
+
+.mine-table tbody tr.row-special td {
+    font-style: italic;
+    color: #999;
+}
+
+/* Badges voor Eigendom */
+.badge-privaat,
+.badge-staats {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    clip-path: polygon(0 0, 100% 0, 95% 50%, 100% 100%, 0 100%, 5% 50%);
+}
+
+.badge-privaat {
+    background: #444;
+    color: #fff;
+}
+
+.badge-staats {
+    background: var(--geel);
+    color: var(--zwart);
+}
+
+.table-footnote {
+    margin-top: 1rem;
+    font-size: 0.75rem;
+    color: #888;
+    font-style: italic;
+}
+
+.table-footnote sup {
+    color: var(--geel);
+}
+
+/* Responsive table */
+@media (max-width: 768px) {
+    .mine-table-container {
+        padding: 1rem;
+    }
+    
+    .mine-table {
+        font-size: 0.75rem;
+    }
+    
+    .mine-table th,
+    .mine-table td {
+        padding: 0.5rem 0.3rem;
+    }
 }

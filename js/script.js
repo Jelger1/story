@@ -212,6 +212,7 @@ function initCharts() {
     if (ctx2 && ctx2.getContext) {
         chartInstances.migrant = new Chart(ctx2.getContext('2d'), {
             type: 'doughnut',
+            plugins: [ChartDataLabels],
             data: {
                 labels: ['Limburgers', 'Drenten/Noord', 'Polen', 'Duitsers', 'Overig'].map(wrap),
                 datasets: [{
@@ -228,6 +229,22 @@ function initCharts() {
                     legend: {
                         position: 'bottom',
                         labels: { color: '#fff', padding: 15 }
+                    },
+                    datalabels: {
+                        color: function(context) {
+                            // Zwarte tekst op gele en witte segmenten, witte tekst op donkere
+                            return context.dataIndex <= 1 ? '#000' : '#fff';
+                        },
+                        font: {
+                            weight: 'bold',
+                            size: 14
+                        },
+                        formatter: function(value) {
+                            return value + '%';
+                        },
+                        anchor: 'center',
+                        align: 'center',
+                        offset: 0
                     }
                 }
             }

@@ -1,3 +1,42 @@
+
+/* Prehistory Theme - Rood */
+#story-prehistory .prehistory-home-btn img {
+    filter: brightness(0) saturate(100%) invert(22%) sepia(95%) saturate(6000%) hue-rotate(355deg) brightness(95%) contrast(95%);
+}
+
+body:has(#story-prehistory:not(.hidden-section)) #timeline-ui {
+    background: rgba(237, 28, 36, 0.2);
+}
+
+body:has(#story-prehistory:not(.hidden-section)) #timeline-ui .timeline-fill {
+    background: #ed1c24;
+}
+
+body:has(#story-prehistory:not(.hidden-section)) #timeline-ui .marker.active {
+    background: #ed1c24;
+    border-color: #ed1c24;
+    box-shadow: 0 0 20px #ed1c24;
+}
+
+/* Migratie Theme - Blauw */
+#story-migratie .migratie-home-btn img,
+.migratie-theme .migratie-home-btn img {
+    filter: brightness(0) saturate(100%) invert(54%) sepia(97%) saturate(7492%) hue-rotate(170deg) brightness(98%) contrast(101%);
+}
+
+body:has(#story-migratie:not(.hidden-section)) #timeline-ui {
+    background: rgba(0, 174, 239, 0.2);
+}
+
+body:has(#story-migratie:not(.hidden-section)) #timeline-ui .timeline-fill {
+    background: #00aeef;
+}
+
+body:has(#story-migratie:not(.hidden-section)) #timeline-ui .marker.active {
+    background: #00aeef;
+    border-color: #00aeef;
+    box-shadow: 0 0 20px #00aeef;
+}
 /* ===========================================
    HEERLEN: DE STORY VAN HET ZWARTE GOUD
    Main Stylesheet
@@ -38,6 +77,30 @@ body, p, span, .circular-font {
 html {
     scroll-behavior: smooth;
 }
+
+/* Afstand en positionering voor Terug in de tijd blok */
+.terug-tijd-blok {
+    margin-top: 40px;
+    margin-bottom: 0;
+    padding-top: 24px;
+    border-top: 1px solid rgba(237,28,36,0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+}
+.terug-tijd-titel {
+    margin-bottom: 0px;
+    font-size: 1.1rem;
+    font-family: 'Girdo Black', 'Anton', sans-serif;
+    color: #ed1c24;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+    line-height: 1.3;
+}
+
 
 body {
     background-color: var(--zwart);
@@ -297,6 +360,35 @@ body {
     filter: brightness(1.2);
 }
 
+/* Gekleurde glows voor thema knoppen */
+.btn-glow-green img {
+    filter: drop-shadow(0 0 12px rgba(0, 166, 81, 0.6));
+}
+.btn-glow-green:hover img {
+    filter: drop-shadow(0 0 20px rgba(0, 166, 81, 0.9)) brightness(1.2);
+}
+
+.btn-glow-blue img {
+    filter: drop-shadow(0 0 12px rgba(0, 174, 239, 0.6));
+}
+.btn-glow-blue:hover img {
+    filter: drop-shadow(0 0 20px rgba(0, 174, 239, 0.9)) brightness(1.2);
+}
+
+.btn-glow-yellow img {
+    filter: drop-shadow(0 0 12px rgba(255, 235, 0, 0.6));
+}
+.btn-glow-yellow:hover img {
+    filter: drop-shadow(0 0 20px rgba(255, 235, 0, 0.9)) brightness(1.2);
+}
+
+.btn-glow-red img {
+    filter: drop-shadow(0 0 12px rgba(237, 28, 36, 0.6));
+}
+.btn-glow-red:hover img {
+    filter: drop-shadow(0 0 20px rgba(237, 28, 36, 0.9)) brightness(1.2);
+}
+
 /* Start knop specifiek kleiner */
 #start-btn img {
     max-width: 220px;
@@ -344,6 +436,7 @@ body {
         height: 60px;
     }
 }
+
 
 /* --- Timeline --- */
 .timeline-rail {
@@ -428,6 +521,20 @@ section {
     display: none;
 }
 
+/* Navigator Hub - geen scroll */
+.navigator-hub {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.navigator-hub.hidden-section {
+    display: none;
+}
+
 /* --- Animations --- */
 @keyframes fadeIn {
     from {
@@ -464,6 +571,30 @@ section {
     filter: drop-shadow(0 0 15px var(--geel)) drop-shadow(0 0 60px rgba(255, 235, 0, 0.5));
 }
 
+/* Migratie Theme - Blauwe glow voor video's */
+#story-migratie .video-2-container,
+.migratie-theme .video-2-container {
+    filter: drop-shadow(0 0 15px #00aeef) drop-shadow(0 0 60px rgba(0, 174, 239, 0.5));
+}
+
+/* Prehistory Theme - Rode glow voor video's */
+#story-prehistory .video-2-container,
+.prehistory-theme .video-2-container {
+    filter: drop-shadow(0 0 15px #ed1c24) drop-shadow(0 0 60px rgba(237, 28, 36, 0.5));
+}
+
+/* Welvaart Theme - Groene glow voor video's */
+#story-welvaart .video-2-container,
+.welvaart-theme .video-2-container {
+    filter: drop-shadow(0 0 15px #00a651) drop-shadow(0 0 60px rgba(0, 166, 81, 0.5));
+}
+
+/* Val Theme - Roze glow voor video's */
+#story-val .video-2-container,
+.val-theme .video-2-container {
+    filter: drop-shadow(0 0 15px #ec008c) drop-shadow(0 0 60px rgba(236, 0, 140, 0.5));
+}
+
 .video-2-masked {
     width: 100%;
     height: auto;
@@ -491,6 +622,81 @@ section {
     background: var(--grijs);
     padding: 1rem;
     position: relative;
+}
+
+/* Welvaart Theme - Groen */
+.welvaart-theme .timeline-fill {
+    background: #00a651;
+}
+
+.welvaart-theme .marker.active {
+    background: #00a651;
+    border-color: #00a651;
+    box-shadow: 0 0 20px #00a651;
+}
+
+.welvaart-theme ~ #timeline-ui .timeline-fill,
+#story-welvaart.welvaart-theme ~ #timeline-ui .timeline-fill {
+    background: #00a651;
+}
+
+/* Groene home knop voor Welvaart */
+.welvaart-home-btn img {
+    filter: brightness(0) saturate(100%) invert(44%) sepia(96%) saturate(463%) hue-rotate(102deg) brightness(96%) contrast(101%);
+}
+
+/* Groene timeline rail wanneer Welvaart actief is */
+body:has(#story-welvaart:not(.hidden-section)) #timeline-ui {
+    background: rgba(0, 166, 81, 0.2);
+}
+
+body:has(#story-welvaart:not(.hidden-section)) #timeline-ui .timeline-fill {
+    background: #00a651;
+}
+
+body:has(#story-welvaart:not(.hidden-section)) #timeline-ui .marker.active {
+    background: #00a651;
+    border-color: #00a651;
+    box-shadow: 0 0 20px #00a651;
+}
+
+/* Val/Sluiting Theme - Roze */
+.val-home-btn img {
+    filter: brightness(0) saturate(100%) invert(20%) sepia(95%) saturate(5000%) hue-rotate(320deg) brightness(95%) contrast(105%);
+}
+
+body:has(#story-val:not(.hidden-section)) #timeline-ui {
+    background: rgba(236, 0, 140, 0.2);
+}
+
+body:has(#story-val:not(.hidden-section)) #timeline-ui .timeline-fill {
+    background: #ec008c;
+}
+
+body:has(#story-val:not(.hidden-section)) #timeline-ui .marker.active {
+    background: #ec008c;
+    border-color: #ec008c;
+    box-shadow: 0 0 20px #ec008c;
+}
+
+.mine-table-welvaart .mine-table thead {
+    background: linear-gradient(90deg, #00a651, #00843d);
+}
+
+.mine-table-welvaart .badge-staats {
+    background: #00a651;
+}
+
+.mine-table-welvaart tbody tr.row-staats {
+    background: rgba(0, 166, 81, 0.05);
+}
+
+.mine-table-welvaart tbody tr.row-staats:hover {
+    background: rgba(0, 166, 81, 0.15);
+}
+
+.mine-table-welvaart tbody tr:hover {
+    background: rgba(0, 166, 81, 0.1);
 }
 
 .mine-table {

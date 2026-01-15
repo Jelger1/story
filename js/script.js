@@ -218,12 +218,18 @@ function initCharts() {
                 datasets: [{
                     data: [55, 15, 14, 12, 4],
                     backgroundColor: ['#ffeb00', '#ffffff', '#888', '#555', '#333'],
-                    borderWidth: 0
+                    borderWidth: 0,
+                    hoverOffset: 15
                 }]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
+                onHover: function(event, elements) {
+                    // Track welk element wordt gehoverd
+                    this.hoveredIndex = elements.length > 0 ? elements[0].index : -1;
+                    this.update('none');
+                },
                 plugins: {
                     tooltip: tooltipConfig,
                     legend: {
@@ -244,7 +250,11 @@ function initCharts() {
                         },
                         anchor: 'center',
                         align: 'center',
-                        offset: 0
+                        offset: 0,
+                        display: function(context) {
+                            // Verberg label als dit segment wordt gehoverd
+                            return context.chart.hoveredIndex !== context.dataIndex;
+                        }
                     }
                 }
             }

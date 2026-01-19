@@ -18,6 +18,10 @@ body:has(#story-prehistory:not(.hidden-section)) #timeline-ui .marker.active {
     box-shadow: 0 0 20px #ed1c24;
 }
 
+body:has(#story-prehistory:not(.hidden-section)) .terug-tijd-titel {
+    color: #ed1c24;
+}
+
 /* Migratie Theme - Blauw */
 #story-migratie .migratie-home-btn img,
 .migratie-theme .migratie-home-btn img {
@@ -36,6 +40,10 @@ body:has(#story-migratie:not(.hidden-section)) #timeline-ui .marker.active {
     background: #00aeef;
     border-color: #00aeef;
     box-shadow: 0 0 20px #00aeef;
+}
+
+body:has(#story-migratie:not(.hidden-section)) .terug-tijd-titel {
+    color: #00aeef;
 }
 /* ===========================================
    HEERLEN: DE STORY VAN HET ZWARTE GOUD
@@ -486,7 +494,7 @@ body {
     position: relative;
     width: 100%;
     max-width: 600px;
-    height: 300px;
+    height: 250px;
     margin: 2rem auto;
 }
 
@@ -499,6 +507,20 @@ section {
     flex-direction: column;
     justify-content: center;
     animation: fadeIn 0.6s ease-out;
+}
+
+/* Content container voor tekst in sections */
+.section-content {
+    max-width: 800px;
+    width: 100%;
+}
+
+/* Paragraph styling met max-width */
+section p,
+.section-content p {
+    max-width: 700px;
+    font-size: 1rem;
+    line-height: 1.7;
 }
 
 /* --- Image Placeholder --- */
@@ -548,17 +570,112 @@ section {
 }
 
 /* --- Responsive Design --- */
+
+/* Kleine schermen (mobiel) */
 @media (max-width: 768px) {
     .timeline-rail {
         display: none;
     }
     
     section {
-        padding: 8vh 5% !important;
+        padding: 6vh 5% !important;
+        min-height: auto;
     }
     
     h2 {
-        font-size: 2.5rem !important;
+        font-size: 2.2rem !important;
+    }
+    
+    section p,
+    .section-content p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+    
+    .chart-container {
+        height: 220px;
+        max-width: 100%;
+    }
+}
+
+/* Tablet schermen */
+@media (min-width: 769px) and (max-width: 1024px) {
+    section {
+        padding: 8vh 8% 8vh 100px;
+    }
+    
+    section p,
+    .section-content p {
+        font-size: 1.05rem;
+    }
+    
+    h2 {
+        font-size: 3.5rem;
+    }
+}
+
+/* Grote schermen (desktop) */
+@media (min-width: 1025px) and (max-width: 1440px) {
+    section {
+        padding: 10vh 12% 10vh 140px;
+    }
+    
+    section p,
+    .section-content p {
+        font-size: 1.1rem;
+        max-width: 750px;
+    }
+    
+    h2 {
+        font-size: 4rem;
+    }
+}
+
+/* Extra grote schermen (wide monitors) */
+@media (min-width: 1441px) {
+    section {
+        padding: 10vh 15% 10vh 160px;
+    }
+    
+    section p,
+    .section-content p {
+        font-size: 1.2rem;
+        max-width: 850px;
+        line-height: 1.8;
+    }
+    
+    h2 {
+        font-size: 5rem;
+    }
+    
+    .chart-container {
+        max-width: 700px;
+        height: 300px;
+    }
+    
+    .video-2-container {
+        max-width: 1000px;
+    }
+}
+
+/* Ultra-wide schermen (2K+) */
+@media (min-width: 1921px) {
+    section {
+        padding: 10vh 20% 10vh 180px;
+    }
+    
+    section p,
+    .section-content p {
+        font-size: 1.35rem;
+        max-width: 950px;
+    }
+    
+    h2 {
+        font-size: 6rem;
+    }
+    
+    .terug-tijd-titel {
+        font-size: 1.3rem;
     }
 }
 
@@ -660,6 +777,10 @@ body:has(#story-welvaart:not(.hidden-section)) #timeline-ui .marker.active {
     box-shadow: 0 0 20px #00a651;
 }
 
+body:has(#story-welvaart:not(.hidden-section)) .terug-tijd-titel {
+    color: #00a651;
+}
+
 /* Val/Sluiting Theme - Roze */
 .val-home-btn img {
     filter: brightness(0) saturate(100%) invert(20%) sepia(95%) saturate(5000%) hue-rotate(320deg) brightness(95%) contrast(105%);
@@ -677,6 +798,10 @@ body:has(#story-val:not(.hidden-section)) #timeline-ui .marker.active {
     background: #ec008c;
     border-color: #ec008c;
     box-shadow: 0 0 20px #ec008c;
+}
+
+body:has(#story-val:not(.hidden-section)) .terug-tijd-titel {
+    color: #ec008c;
 }
 
 .mine-table-welvaart .mine-table thead {
@@ -794,5 +919,22 @@ body:has(#story-val:not(.hidden-section)) #timeline-ui .marker.active {
     .mine-table th,
     .mine-table td {
         padding: 0.5rem 0.3rem;
+    }
+}
+
+/* Responsive table voor grote schermen */
+@media (min-width: 1441px) {
+    .mine-table-container {
+        max-width: 900px;
+    }
+    
+    .mine-table th {
+        font-size: 0.75rem;
+        padding: 0.6rem 0.5rem;
+    }
+    
+    .mine-table td {
+        font-size: 0.85rem;
+        padding: 0.6rem 0.5rem;
     }
 }

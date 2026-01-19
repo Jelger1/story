@@ -207,53 +207,79 @@ function initCharts() {
         });
     }
 
-    // Chart Migrant Mix - Herkomst bevolking
+    // Chart Migrant Mix - Herkomst bevolking (horizontale bar voor leesbaarheid)
     const ctx2 = document.getElementById('chartMigrantMix');
     if (ctx2 && ctx2.getContext) {
         chartInstances.migrant = new Chart(ctx2.getContext('2d'), {
-            type: 'doughnut',
+            type: 'bar',
             plugins: [ChartDataLabels],
             data: {
-                labels: ['Limburgers', 'Drenten/Noord', 'Polen', 'Duitsers', 'Overig'].map(wrap),
+                labels: ['Limburgers', 'Drenten/Noorderlingen', 'Polen', 'Duitsers', 'Overig'],
                 datasets: [{
                     data: [55, 15, 14, 12, 4],
-                    backgroundColor: ['#ffeb00', '#ffffff', '#888', '#555', '#333'],
+                    backgroundColor: ['#00aeef', '#0088cc', '#006699', '#004466', '#002233'],
                     borderWidth: 0,
-                    hoverOffset: 15
+                    borderRadius: 4,
+                    barThickness: 28
                 }]
             },
             options: {
+                indexAxis: 'y',
                 responsive: true,
                 maintainAspectRatio: false,
-                onHover: function(event, elements) {
-                    // Track welk element wordt gehoverd
-                    this.hoveredIndex = elements.length > 0 ? elements[0].index : -1;
-                    this.update('none');
+                layout: {
+                    padding: {
+                        right: 50
+                    }
                 },
                 plugins: {
-                    tooltip: tooltipConfig,
-                    legend: {
-                        position: 'bottom',
-                        labels: { color: '#fff', padding: 15 }
+                    tooltip: { enabled: false },
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: 'Herkomst mijnwerkers in Heerlen (1922)',
+                        color: '#00aeef',
+                        font: {
+                            size: 16,
+                            weight: 'bold'
+                        },
+                        padding: {
+                            bottom: 16
+                        }
                     },
                     datalabels: {
-                        color: function(context) {
-                            // Zwarte tekst op gele en witte segmenten, witte tekst op donkere
-                            return context.dataIndex <= 1 ? '#000' : '#fff';
-                        },
+                        color: '#fff',
+                        anchor: 'end',
+                        align: 'right',
+                        offset: 8,
                         font: {
                             weight: 'bold',
                             size: 14
                         },
                         formatter: function(value) {
                             return value + '%';
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        display: false,
+                        max: 70
+                    },
+                    y: {
+                        ticks: {
+                            color: '#fff',
+                            font: {
+                                size: 13,
+                                weight: '500'
+                            },
+                            padding: 8
                         },
-                        anchor: 'center',
-                        align: 'center',
-                        offset: 0,
-                        display: function(context) {
-                            // Verberg label als dit segment wordt gehoverd
-                            return context.chart.hoveredIndex !== context.dataIndex;
+                        grid: {
+                            display: false
+                        },
+                        border: {
+                            display: false
                         }
                     }
                 }

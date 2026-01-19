@@ -186,9 +186,9 @@ function initCharts() {
                 datasets: [{
                     label: 'Prijsindex Kolen',
                     data: [10, 15, 60, 45],
-                    borderColor: '#ffeb00',
+                    borderColor: '#ffe652',
                     fill: true,
-                    backgroundColor: 'rgba(255, 235, 0, 0.1)',
+                    backgroundColor: 'rgba(255, 230, 82, 0.1)',
                     tension: 0.3
                 }]
             },
@@ -217,7 +217,7 @@ function initCharts() {
                 labels: ['Limburgers', 'Drenten/Noorderlingen', 'Polen', 'Duitsers', 'Overig'],
                 datasets: [{
                     data: [55, 15, 14, 12, 4],
-                    backgroundColor: ['#00aeef', '#0088cc', '#006699', '#004466', '#002233'],
+                    backgroundColor: ['#1eb1eb', '#189acc', '#1283aa', '#0c6c88', '#065566'],
                     borderWidth: 0,
                     borderRadius: 4,
                     barThickness: 28
@@ -238,7 +238,7 @@ function initCharts() {
                     title: {
                         display: true,
                         text: 'Herkomst mijnwerkers in Heerlen (1922)',
-                        color: '#00aeef',
+                        color: '#1eb1eb',
                         font: {
                             size: 16,
                             weight: 'bold'
@@ -248,7 +248,7 @@ function initCharts() {
                         }
                     },
                     datalabels: {
-                        color: '#fff',
+                        color: '#f1efee',
                         anchor: 'end',
                         align: 'right',
                         offset: 8,
@@ -268,7 +268,7 @@ function initCharts() {
                     },
                     y: {
                         ticks: {
-                            color: '#fff',
+                            color: '#f1efee',
                             font: {
                                 size: 13,
                                 weight: '500'
@@ -297,7 +297,7 @@ function initCharts() {
                 datasets: [{
                     label: 'Status Index',
                     data: [100, 70, 30, 90],
-                    backgroundColor: '#ffeb00',
+                    backgroundColor: '#ffe652',
                     borderRadius: 4
                 }]
             },

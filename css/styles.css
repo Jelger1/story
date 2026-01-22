@@ -199,15 +199,115 @@ body {
 /* --- Video SVG Container --- */
 .video-svg-container {
     position: relative;
-    width: 100%;
-    max-width: 2000px;
+    width: 80%;
+    max-width: 900px;
     margin: 0 auto;
-    max-height: 85vh;
+    max-height: 70vh;
     filter: drop-shadow(0 0 15px var(--geel)) drop-shadow(0 0 60px rgba(255, 230, 82, 0.5));
 }
 
 .video-frame {
     display: none;
+}
+
+/* --- Steenkool Video Overlay --- */
+.steenkool-video-section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--zwart);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.steenkool-video-section.hidden-section {
+    display: none;
+}
+
+.steenkool-video-container {
+    position: relative;
+    width: 90%;
+    max-width: 1000px;
+    /* Behoud aspect ratio van de SVG (1166 x 925) */
+    aspect-ratio: 1166 / 925;
+    max-height: 80vh;
+    filter: drop-shadow(0 0 15px var(--geel)) drop-shadow(0 0 60px rgba(255, 230, 82, 0.5));
+}
+
+.steenkool-video-masked {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    /* Gebruik de SVG als mask */
+    -webkit-mask-image: url('../assets/Intro-Video-Steenkool.svg');
+    mask-image: url('../assets/Intro-Video-Steenkool.svg');
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+}
+
+.skip-video-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    background: transparent;
+    padding: 0;
+    z-index: 10000;
+}
+
+.skip-video-btn img {
+    width: 150px;
+    height: auto;
+    transition: all 0.3s ease;
+}
+
+.skip-video-btn:hover {
+    transform: scale(1.05);
+}
+
+.skip-video-btn:hover img {
+    filter: brightness(1.2);
+}
+
+.skip-video-btn.hidden {
+    display: none;
+}
+
+.skip-video-btn.fade-in {
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .skip-video-btn {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .skip-video-btn img {
+        width: 100px;
+    }
 }
 
 .intro-video-masked {
@@ -365,6 +465,31 @@ body {
 }
 
 .btn-svg-simple:hover img {
+    filter: brightness(1.2);
+}
+
+/* Roterende button hover effect */
+.btn-rotate {
+    transition: all 0.4s ease;
+    display: block;
+    margin: 0 auto;
+}
+
+.btn-rotate img {
+    width: 80px;
+    max-width: 5vw;
+    min-width: 60px;
+    height: auto;
+    transition: transform 0.4s ease;
+    margin-top: 50px;
+}
+
+.btn-rotate:hover {
+    transform: scale(1.05);
+}
+
+.btn-rotate:hover img {
+    transform: rotate(360deg);
     filter: brightness(1.2);
 }
 

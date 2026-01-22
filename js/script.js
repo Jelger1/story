@@ -10,10 +10,92 @@ let chartInstances = {};
 // NAVIGATION LOGIC
 // ===========================================
 
+// Intro video beheer
+function pauseIntroVideo() {
+    const introVideo = document.getElementById('intro-video');
+    if (introVideo) {
+        introVideo.pause();
+        introVideo.muted = true;
+    }
+}
+
+function playIntroVideo() {
+    const introVideo = document.getElementById('intro-video');
+    if (introVideo) {
+        introVideo.muted = false;
+        introVideo.play();
+    }
+}
+
+// Unmute intro video bij eerste klik op de pagina
+document.addEventListener('click', function unmuteIntro() {
+    const introVideo = document.getElementById('intro-video');
+    if (introVideo && !document.getElementById('intro').classList.contains('hidden-section')) {
+        introVideo.muted = false;
+    }
+}, { once: true });
+
 function showNavigator() {
+    pauseIntroVideo();
     document.getElementById('intro').classList.add('hidden-section');
+    document.getElementById('steenkool-video-overlay').classList.add('hidden-section');
     document.getElementById('navigator').classList.remove('hidden-section');
     window.scrollTo({ top: 0, behavior: 'instant' });
+}
+
+// Steenkool Video functies
+let skipButtonTimeout = null;
+
+function showSteenkoolVideo() {
+    // Stop intro video audio
+    pauseIntroVideo();
+    
+    document.getElementById('intro').classList.add('hidden-section');
+    document.getElementById('steenkool-video-overlay').classList.remove('hidden-section');
+    
+    const video = document.getElementById('steenkool-video');
+    const skipBtn = document.getElementById('skip-video-btn');
+    
+    // Reset video en skip button
+    video.currentTime = 0;
+    skipBtn.classList.add('hidden');
+    skipBtn.classList.remove('fade-in');
+    
+    // Start video
+    video.play();
+    
+    // Toon skip button na 3 seconden
+    skipButtonTimeout = setTimeout(() => {
+        skipBtn.classList.remove('hidden');
+        skipBtn.classList.add('fade-in');
+    }, 3000);
+    
+    // Ga automatisch naar navigator als video klaar is
+    video.onended = function() {
+        skipSteenkoolVideo();
+    };
+}
+
+function skipSteenkoolVideo() {
+    const video = document.getElementById('steenkool-video');
+    const skipBtn = document.getElementById('skip-video-btn');
+    
+    // Clear timeout als die nog loopt
+    if (skipButtonTimeout) {
+        clearTimeout(skipButtonTimeout);
+        skipButtonTimeout = null;
+    }
+    
+    // Stop video
+    video.pause();
+    video.currentTime = 0;
+    
+    // Verberg skip button
+    skipBtn.classList.add('hidden');
+    skipBtn.classList.remove('fade-in');
+    
+    // Ga naar navigator
+    showNavigator();
 }
 
 // Pre-History functies
@@ -65,7 +147,9 @@ function backToIntro() {
     document.querySelectorAll('[id^="story-"]').forEach(el => el.classList.add('hidden-section'));
     document.getElementById('timeline-ui').classList.add('hidden');
     document.getElementById('navigator').classList.add('hidden-section');
+    document.getElementById('steenkool-video-overlay').classList.add('hidden-section');
     document.getElementById('intro').classList.remove('hidden-section');
+    playIntroVideo();
     window.scrollTo({ top: 0, behavior: 'instant' });
 }
 

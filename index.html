@@ -23,15 +23,29 @@
         <div class="max-w-6xl mx-auto">
             <div class="intro-layout">
                 <div class="video-svg-container">
-                    <img src="assets/INTRO-VIDEO.gif" alt="Intro" class="intro-video-masked">
+                    <video id="intro-video" class="intro-video-masked" loop muted autoplay playsinline>
+                        <source src="assets/INTRO-VIDEO.mp4" type="video/mp4">
+                    </video>
                 </div>
                 <div class="intro-bottom">
-                    <button id="start-btn" onclick="showNavigator()" class="btn-svg-simple opacity-0 transition-opacity duration-1000">
+                    <button id="start-btn" onclick="showSteenkoolVideo()" class="btn-svg-simple opacity-0 transition-opacity duration-1000">
                         <img src="assets/Start-Knop.svg" alt="Start de Story">
                     </button>
                 </div>
             </div>
         </div>
+    </section>
+
+    <!-- STEENKOOL INTRO VIDEO -->
+    <section id="steenkool-video-overlay" class="hidden-section steenkool-video-section">
+        <div class="steenkool-video-container">
+            <video id="steenkool-video" class="steenkool-video-masked" playsinline>
+                <source src="assets/Intro-Video-Steenkool.mp4" type="video/mp4">
+            </video>
+        </div>
+        <button id="skip-video-btn" class="skip-video-btn hidden" onclick="skipSteenkoolVideo()">
+            <img src="assets/Skip-Video-Knop.svg" alt="Skip Video">
+        </button>
     </section>
 
 
@@ -103,7 +117,6 @@
         </section>
         <section class="text-center">
             <h2 class="text-5xl mb-8">En Toen Kwam de Mijn...</h2>
-            <p class="text-xl text-gray-400 mb-8">Kies een thema om verder te gaan:</p>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
                 <button onclick="closePreHistory(); startStory('welvaart')" class="btn-svg-simple group btn-glow-green">
                     <img src="assets/knop-Welvaart.svg" alt="Welvaart">
@@ -167,14 +180,18 @@
             <h2 class="text-7xl mb-6">De Komst van de Spoorwegen en de Gouden Handtekening</h2>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <p class="text-xl">Sarolea ziet wat anderen niet zien. Hij brengt de spoorweg naar Heerlen. Zonder trein geen kolenvervoer. Dit is het moment dat het agrarische hart voor het eerst een industrieel ritme krijgt. In ditzelfde jaar kregen de Duitse broers Honigmann de officiële licentie om te graven. Zij wisten namelijk dat er onder Heerlen een fortuin aan steenkool lag. Om de kritische bazen in Den Haag te paaien, noemden ze hun bedrijf slim de 'Oranje-Nassau' mijnen. Met deze koninklijke marketingtruc kregen ze hun zin en veranderde Heerlen van een boerendorp in een industriegebied.</p>
-                <img src="assets/foto-placeholder.svg" alt="Placeholder" class="w-full h-auto">
+                <div class="video-2-container" style="max-width: 500px;">
+                    <img src="assets/Welvaart-Komst-Spoorwegen.jpg" alt="Komst van de Spoorwegen" class="video-2-masked">
+                </div>
             </div>
         </section>
         <section>
             <span class="text-[#2db45c] text-4xl girdo-font">1899</span>
             <h2 class="text-7xl mb-6">Van Koeien naar Kolen</h2>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <img src="assets/foto-placeholder.svg" alt="Placeholder" class="w-full h-auto">
+                <div class="video-2-container" style="max-width: 500px;">
+                    <img src="assets/Welvaart-Nassau-I.jpg" alt="Oranje-Nassau I" class="video-2-masked">
+                </div>
                 <p class="text-xl">Vijf jaar later, met de opening van de Oranje-Nassau I begon de eerste mijn echt te draaien en verdween de landelijke rust voorgoed. Ineens stond daar een gigantische toren die dag en nacht herrie maakte, terwijl lokale boeren nog geen idee hadden hoe ze de kolen uit de grond moesten halen. Daarom haalden de eigenaren experts uit het buitenland, waardoor de straten van Heerlen ineens vol liepen met Duitse en Sloveense "aliens".</p>
             </div>
         </section>
@@ -234,7 +251,9 @@
             <span class="text-[#2db45c] text-4xl girdo-font">1917</span>
             <h2 class="text-7xl mb-6">De Oorlogsboom</h2>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <img src="assets/foto-placeholder.svg" alt="Placeholder" class="w-full h-auto">
+                <div class="video-2-container" style="max-width: 500px;">
+                    <img src="assets/Welvaart-1917.jpg" alt="De Oorlogsboom 1917" class="video-2-masked">
+                </div>
                 <p class="text-xl">In 1917, terwijl heel Europa in brand stond door de Eerste Wereldoorlog, zat Nederland veilig aan de zijlijn, maar het land schreeuwde om energie. Omdat de import uit het buitenland stopte, schoot de prijs van de Heerlense kolen met wel 400% omhoog; het "zwarte goud" was ineens letterlijk goud waard. Het geld stroomde met miljoenen tegelijk de stad binnen, waardoor Heerlen in deze donkere jaren veranderde in de rijkste en drukste schatkist van Nederland.</p>
             </div>
         </section>
@@ -243,20 +262,23 @@
             <h2 class="text-7xl mb-6">Een Middelvinger naar de Crisis</h2>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <p class="text-xl">Zelfs toen de rest van de wereld jaren later in een diepe economische crisis belandde, bleef Heerlen haar pasverdiende rijkdom met trots tonen aan de buitenwereld. Midden in de armoede bouwt het modehuis Schunck het glazen monument. Het laat zien: wij zijn modern, wij zijn rijk. Een jaar later start ook de bouw van het Raadhuis als statement van ongekende rijkdom en zelfvertrouwen. Architect Frits Peutz ontwierp zowel het glazen monument als de strakke, witte "tempel" die de rest van Nederland jaloers maakte.</p>
-                <img src="assets/foto-placeholder.svg" alt="Placeholder" class="w-full h-auto">
+                <div class="video-2-container" style="max-width: 400px;">
+                    <img src="assets/Welvaart-1935-1936.jpg" alt="Heerlen 1935-1936" class="video-2-masked">
+                </div>
             </div>
         </section>
         <section>
             <span class="text-[#2db45c] text-4xl girdo-font">1945 - 1955</span>
             <h2 class="text-7xl mb-6">De Wederopbouw</h2>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <img src="assets/foto-placeholder.svg" alt="Placeholder" class="w-full h-auto">
+                <div class="video-2-container" style="max-width: 500px;">
+                    <img src="assets/Welvaart-Mijnwerkers-Als-Helden.jpg" alt="Mijnwerkers als Helden" class="video-2-masked">
+                </div>
                 <p class="text-xl">Na de tweede wereldoorlog lag Nederland wederom in het puin en waren de mijnwerkers als "helden van de arbeid" de enige hoop om het land weer tot leven te wekken. De regering smeekte om brandstof en de koempels werkten zelfs op zondag door tijdens de legendarische "Kolenslag". Ze werden behandeld als topsporters met extra eten en stonden op posters door het hele land: de mijnwerker werkte voor iedereen.</p>
             </div>
         </section>
         <section class="text-center">
             <h2 class="text-5xl mb-8">Verken Andere Verhalen</h2>
-            <p class="text-xl text-gray-400 mb-12">Wil je meer ontdekken over Heerlen's mijngeschiedenis?</p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto mb-12">
                 <button onclick="startStory('migratie')" class="btn-svg-simple group btn-glow-blue">
                     <img src="assets/knop-migratie.svg" alt="Migratie">
@@ -375,7 +397,9 @@
             <span class="text-[#ffe652] text-4xl girdo-font">1911</span>
             <h2 class="text-7xl mb-6">De Kroning aan het Kolenfront</h2>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <img src="assets/foto-placeholder.svg" alt="Placeholder" class="w-full h-auto">
+                <div class="video-2-container" style="max-width: 500px;">
+                    <img src="assets/MijnCultuur-1911.jpg" alt="Houwersdiploma 1911" class="video-2-masked">
+                </div>
                 <p class="text-xl">Vanaf 1911 is de mijnwerker niet langer een 'ongeoefende zwoeger', maar een gediplomeerd vakman. Met de invoering van de eerste officiële houwersdiploma's ontstaat er een nieuwe adel onder de grond. De Meester-houwer klimt op tot de onbetwiste koning van de schacht. Hij is degene die de zwarte wand 'leest', die weet waar het gevaar loert en die met één blik bepaalt hoe hard er gezwoegd wordt. Heb je je diploma? Dan verdien je niet alleen meer goud in je loonzakje, maar dwing je diep respect af bij elke man die de lift in stapt.</p>
             </div>
         </section>
@@ -384,14 +408,18 @@
             <h2 class="text-7xl mb-6">Meer dan Kolen Alleen</h2>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <p class="text-xl">Na jaren van uitputting en dagen die pas eindigden als de ruggen brak waren, valt in 1919 eindelijk de beslissing: de acht-urige werkdag is een feit. Voor de koempel betekent dit een revolutie; voor het eerst blijft er zonlicht over na de dienst. De mijn grijpt dit moment aan om de 'vrije tijd' van haar arbeiders vorm te geven.</p>
-                <img src="assets/foto-placeholder.svg" alt="Placeholder" class="w-full h-auto">
+                <div class="video-2-container" style="max-width: 500px;">
+                    <img src="assets/MijnCultuur-1919.jpg" alt="Acht-urige werkdag 1919" class="video-2-masked">
+                </div>
             </div>
         </section>
         <section>
             <span class="text-[#ffe652] text-4xl girdo-font">1925</span>
             <h2 class="text-7xl mb-6">De Vaderlijke Mijn</h2>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <img src="assets/foto-placeholder.svg" alt="Placeholder" class="w-full h-auto">
+                <div class="video-2-container" style="max-width: 500px;">
+                    <img src="assets/MijnCultuur-1925.jpg" alt="De Vaderlijke Mijn 1925" class="video-2-masked">
+                </div>
                 <p class="text-xl">In de hoogtijdagen van de kolen was de mijn niet zomaar je werkgever; het was je hele universum. De mijn regelde alles voor je: van de sportclub waar je voetbalde en de kerk waar je bad, tot de school waar je kinderen leerden lezen. Binnen deze muren heerste een ijzeren hiërarchie die je nergens anders zag. Aan de top stond de Meester-houwer als een onbetwiste koning van het kolenfront, terwijl de 'Piemel', de groenste nieuwkomer die onderaan de ladder begon, alleen mocht zwijgen en keihard werken. In deze wereld leerde je snel: pas als je het zwarte stof had bewezen, verdiende je de stem die je als koempel nodig had om te overleven.</p>
             </div>
         </section>
@@ -401,20 +429,23 @@
             <h2 class="text-7xl mb-6">Dienst van het Geluk en de Heilige Barbara</h2>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <p class="text-xl">Ondergronds werk je in een wereld waar je nooit weet of je de zon weer zult zien, en daarom is geloof hier geen keuze, maar pure noodzaak. Sint Barbara is de onbetwiste beschermheilige van de koempels; haar beeldje staat in elke schacht als een baken van hoop in de zwarte duisternis. Om de moraal hoog te houden, richtten de mijnen de 'Dienst van het Geluk' op, een afdeling die niet alleen zorgde voor de veiligheid, maar ook voor het hart van de gemeenschap.</p>
-                <img src="assets/barbara.svg" alt="Sint Barbara" class="w-auto h-64 md:h-80 object-contain mx-auto">
+                <div class="video-2-container" style="max-width: 500px;">
+                    <img src="assets/MijnCultuur-1948-Barbara.jpg" alt="Heilige Barbara 1948" class="video-2-masked">
+                </div>
             </div>
         </section>
         <section>
             <span class="text-[#ffe652] text-4xl girdo-font">1952</span>
             <h2 class="text-7xl mb-6">Zwart Brood en Gouden Verhalen</h2>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <img src="assets/foto-placeholder.svg" alt="Placeholder" class="w-full h-auto">
+                <div class="video-2-container" style="max-width: 500px;">
+                    <img src="assets/MijnCultuur-1952.jpg" alt="De Schaf 1952" class="video-2-masked">
+                </div>
                 <p class="text-xl">Vanaf 1952 wordt de 'schaf' officieel hét ankerpunt van de dag. De koempels kruipen bij elkaar op houten balken of lege kisten voor hun gezamenlijke pauze. In het schijnsel van hun hoofdlampen worden de 'boterhammen met tevredenheid' uitgepakt. Maar de schaf is veel meer dan alleen eten; het is het moment waarop de pikorde wegvalt. Hier worden de scherpste grappen gemaakt, de wildste verhalen gedeeld en de diepste zorgen besproken.</p>
             </div>
         </section>
         <section class="text-center">
             <h2 class="text-5xl mb-12">Verken Andere Verhalen</h2>
-            <p class="text-xl text-gray-400 mb-12">Wil je meer ontdekken over Heerlen's mijngeschiedenis?</p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto mb-12">
                 <button onclick="startStory('welvaart')" class="btn-svg-simple group btn-glow-green">
                     <img src="assets/knop-Welvaart.svg" alt="Welvaart">
@@ -535,7 +566,6 @@
         </section>
         <section class="text-center">
             <h2 class="text-5xl mb-12">Verken Andere Verhalen</h2>
-            <p class="text-xl text-gray-300 mb-8">Wil je meer ontdekken over Heerlen's mijngeschiedenis?</p>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
                 <button onclick="startStory('welvaart')" class="btn-svg-simple group btn-glow-green">
                     <img src="assets/knop-Welvaart.svg" alt="Welvaart & Economie">
@@ -547,7 +577,9 @@
                     <img src="assets/knop-Cultuur.svg" alt="Arbeidscultuur">
                 </button>
             </div>
-            <button onclick="backToIntro()" class="btn-angular mt-12">Terug naar Hoofdmenu</button>
+            <button onclick="backToIntro()" class="btn-svg-simple btn-rotate mt-12">
+                <img src="assets/HoofdMenu-Knop.svg" alt="Terug naar Hoofdmenu">
+            </button>
         </section>
     </div>
 

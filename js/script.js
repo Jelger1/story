@@ -154,6 +154,36 @@ function backToIntro() {
 }
 
 // ===========================================
+// AUDIO PLAYER
+// ===========================================
+
+function toggleAudio(audioId, btnId) {
+    const audio = document.getElementById(audioId);
+    const btn = document.getElementById(btnId);
+    const playIcon = btn.querySelector('.play-icon');
+    
+    if (audio.paused) {
+        audio.play();
+        btn.classList.add('playing');
+        playIcon.src = 'assets/pauze-sound.svg';
+        playIcon.alt = 'Pause';
+    } else {
+        audio.pause();
+        btn.classList.remove('playing');
+        playIcon.src = 'assets/play-sound.svg';
+        playIcon.alt = 'Play';
+    }
+    
+    // Reset to play button when audio ends
+    audio.onended = function() {
+        btn.classList.remove('playing');
+        playIcon.src = 'assets/play-sound.svg';
+        playIcon.alt = 'Play';
+        audio.currentTime = 0;
+    };
+}
+
+// ===========================================
 // VIDEO POPUP
 // ===========================================
 

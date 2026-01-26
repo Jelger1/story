@@ -78,7 +78,18 @@ h1, h2, h3, .girdo-font {
 /* Circular Std Fallback */
 body, p, span, .circular-font {
     font-family: 'Inter', sans-serif;
-    line-height: 1.6;
+    line-height: 1.45rem;
+}
+
+p {
+    font-size: 1.0rem;
+    line-height: 1.45rem;
+}
+
+/* Override Tailwind text-xl */
+.text-xl {
+    font-size: 1.0rem !important;
+    line-height: 1.45rem !important;
 }
 
 /* --- Base Styles --- */
@@ -859,6 +870,65 @@ section p,
     );
 }
 
+/* --- Custom Audio Player --- */
+.audio-player-container {
+    background: var(--grijs);
+    padding: 1.5rem;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 95% 100%, 0 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.audio-player-title {
+    font-family: 'Girdo Black', 'Anton', sans-serif;
+    font-size: 1.2rem;
+    color: #ffe652;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.audio-play-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: transform 0.3s ease;
+}
+
+.audio-play-btn:hover {
+    transform: scale(1.1);
+}
+
+.audio-play-btn .play-icon {
+    width: 80px;
+    height: 80px;
+    display: block;
+}
+
+/* Val Theme - Roze audio player */
+.audio-player-val .audio-player-title {
+    color: #ef55ad;
+}
+
+.audio-player-val .custom-audio-player::-webkit-media-controls-panel {
+    background: linear-gradient(90deg, rgba(239, 85, 173, 0.2), rgba(239, 85, 173, 0.1));
+}
+
+.audio-player-val .custom-audio-player::-webkit-media-controls-timeline {
+    filter: sepia(1) hue-rotate(280deg) saturate(3);
+}
+
+.audio-player-val .custom-audio-player::-webkit-media-controls-current-time-display,
+.audio-player-val .custom-audio-player::-webkit-media-controls-time-remaining-display {
+    color: #ef55ad;
+}
+
+.audio-player-val .custom-audio-player::-webkit-media-controls-volume-slider {
+    filter: sepia(1) hue-rotate(280deg) saturate(3);
+}
+
 /* --- Mine Table Styling (Hoekig/Steen-achtig) --- */
 .mine-table-container {
     background: var(--grijs);
@@ -947,6 +1017,19 @@ body:has(#story-val:not(.hidden-section)) .terug-tijd-titel {
 
 .mine-table-welvaart tbody tr:hover {
     background: rgba(45, 180, 92, 0.1);
+}
+
+/* Val Theme - Roze tabel styling */
+.mine-table-val .mine-table thead {
+    background: linear-gradient(90deg, #ef55ad, #d94a9a);
+}
+
+.mine-table-val tbody tr:hover {
+    background: rgba(239, 85, 173, 0.1);
+}
+
+.mine-table-val h3 {
+    color: #ef55ad;
 }
 
 .mine-table {
